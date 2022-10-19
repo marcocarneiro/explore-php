@@ -72,10 +72,9 @@ const rolagem = ()=> {
 
 
 /* //////////// EVENTOS E EXECUÇÕES AUTOMÁTICAS  /////////// */
-
-const mensagem = location.search.split('cad')[0]
-console.log(mensagem)
-if(mensagem == 'ok'){
+const urlParams = new URLSearchParams(window.location.search);
+const parametro = urlParams.get('cad');
+if(parametro == 'ok'){
   alert('USUÁRIO CADASTRADO COM SUCESSO! CADASTRE OUTRO.')
 }
 

@@ -39,13 +39,14 @@ try {
         ':destinos'=> $destinos, 
         ':hospedagem'=> $hospedagem, 
         ':mensagem'=> $mensagem, 
-        ':dt_cadastro'=> $dt_cadastro
+        ':dt_cadastro'=> date('Y-m-d', strtotime($dt_cadastro)) //converte para o formato de banco de dados
     );
     $sql->execute($campos);
 
     //echo '<h1>Usuário cadastrado</h1>';
     //var_dump($_POST);
     
+    //Carrega o arquivo index.html enviando parâmetro cad (variável do tipo GET)
     header('Location: index.html?cad=ok');
 
 } catch (PDOException $erro) {
