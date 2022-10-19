@@ -73,6 +73,11 @@ const rolagem = ()=> {
 
 /* //////////// EVENTOS E EXECUÇÕES AUTOMÁTICAS  /////////// */
 
+const mensagem = location.search.split('cad')[0]
+console.log(mensagem)
+if(mensagem == 'ok'){
+  alert('USUÁRIO CADASTRADO COM SUCESSO! CADASTRE OUTRO.')
+}
 
 
 getEstados()

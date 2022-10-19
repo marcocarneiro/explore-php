@@ -43,8 +43,10 @@ try {
     );
     $sql->execute($campos);
 
-    echo '<h1>Usuário cadastrado</h1>';
-    var_dump($_POST);
+    //echo '<h1>Usuário cadastrado</h1>';
+    //var_dump($_POST);
+    
+    header('Location: index.html?cad=ok');
 
 } catch (PDOException $erro) {
     //se der erro, exibe o erro aqui
