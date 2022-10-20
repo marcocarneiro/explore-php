@@ -27,7 +27,7 @@ try {
     destinos, hospedagem, mensagem, dt_cadastro)
     values(:nome, :email, :sexo, :telefone, :senha, :idade, :estado, :cidade, 
     :destinos, :hospedagem, :mensagem, :dt_cadastro)');
-    $campos = array(
+    $sql->execute(array(
         ':nome' => $nome,
         ':email' => $email, 
         ':sexo' => $sexo, 
@@ -39,15 +39,14 @@ try {
         ':destinos'=> $destinos, 
         ':hospedagem'=> $hospedagem, 
         ':mensagem'=> $mensagem, 
-        ':dt_cadastro'=> date('Y-m-d', strtotime($dt_cadastro)) //converte para o formato de banco de dados
-    );
-    $sql->execute($campos);
+        ':dt_cadastro'=> date('Y-m-d', strtotime($dt_cadastro))
+    ));
 
-    //echo '<h1>Usuário cadastrado</h1>';
-    //var_dump($_POST);
+    //INCLUIR CARREGAMENTO DA PÁGINA PASSANDO PARÂMETROS
+    //header('Location: index.html?cad=ok');
+    echo '<h1>Usuário cadastrado</h1>';
+    var_dump($_POST);    
     
-    //Carrega o arquivo index.html enviando parâmetro cad (variável do tipo GET)
-    header('Location: index.html?cad=ok');
 
 } catch (PDOException $erro) {
     //se der erro, exibe o erro aqui
