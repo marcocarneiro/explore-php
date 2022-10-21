@@ -36,16 +36,14 @@ try {
         ':idade'=> $idade, 
         ':estado'=> $estado, 
         ':cidade'=> $cidade,
-        ':destinos'=> $destinos, 
+        ':destinos'=> implode(',', $destinos), //converte array em texto 
         ':hospedagem'=> $hospedagem, 
         ':mensagem'=> $mensagem, 
         ':dt_cadastro'=> date('Y-m-d', strtotime($dt_cadastro))
     ));
 
-    //INCLUIR CARREGAMENTO DA PÁGINA PASSANDO PARÂMETROS
-    //header('Location: index.html?cad=ok');
-    echo '<h1>Usuário cadastrado</h1>';
-    var_dump($_POST);    
+    //carrega a página index.html enviando variável GET cadastro
+    header('Location: index.html?cadastro=ok');   
     
 
 } catch (PDOException $erro) {

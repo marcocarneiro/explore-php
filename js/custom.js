@@ -1,4 +1,14 @@
 /*  ///////////////////  FUNÇÕES   ////////////////////  */
+
+//Ao carregar a página verifica o parâmetro "cadastro"
+//se o valor for "ok" exibe um alert
+const urlParams = new URLSearchParams(window.location.search)
+var parCadastro =  urlParams.get('cadastro')
+if(parCadastro == 'ok'){
+  let listaClasses = document.getElementById('msg').classList
+  listaClasses.remove('d-none')
+}
+
 const aviso = (msg)=> {
     alert(msg)
 }
@@ -72,11 +82,6 @@ const rolagem = ()=> {
 
 
 /* //////////// EVENTOS E EXECUÇÕES AUTOMÁTICAS  /////////// */
-const urlParams = new URLSearchParams(window.location.search);
-const parametro = urlParams.get('cad');
-if(parametro == 'ok'){
-  alert('USUÁRIO CADASTRADO COM SUCESSO! CADASTRE OUTRO.')
-}
 
 
 getEstados()
